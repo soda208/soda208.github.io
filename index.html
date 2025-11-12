@@ -1,94 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>soda</title>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>หน้าแรก GitHub.io ของนักศึกษา</title>
   <style>
-    body {
-      background-color: #fff;
-      color: #222;
-      font-family: 'Kanit', sans-serif;
-      text-align: center;
-      padding: 60px 20px;
-    }
+    :root{--accent:#d93b3b;--muted:#666;--bg:#f8f8f8;--card:#fff;--radius:12px}
+    *{box-sizing:border-box}
+    body{font-family: "Sarabun", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#111}
+    .container{max-width:1100px;margin:28px auto;padding:28px}
+    header{display:flex;gap:24px;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:16px;flex:0 0 120px;overflow:hidden;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .title{flex:1}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
 
-    h1 {
-      font-size: 48px;
-      animation: shake 1.5s infinite;
-      color: #333;
-    }
+    nav{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+    nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--accent);border:1px solid rgba(217,59,59,0.12);background:#fff}
 
-    @keyframes shake {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(1.5deg); }
-      50% { transform: rotate(0deg); }
-      75% { transform: rotate(-1.5deg); }
-      100% { transform: rotate(0deg); }
-    }
+    main{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:22px}
+    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    h2{color:var(--accent);margin-top:0}
 
-    .face {
-      font-size: 90px;
-      animation: blink 2s infinite;
-      color: #444;
-    }
+    /* Skills list */
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:#f2f2f2;padding:6px 10px;border-radius:999px;font-size:14px;color:#222}
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; }
-    }
+    /* Projects */
+    .projects{display:grid;gap:12px}
+    .project{border-left:4px solid var(--accent);padding:12px;background:#fff;border-radius:10px}
+    .project .meta{font-size:13px;color:var(--muted);margin-top:6px}
+    .project a{display:inline-block;margin-top:8px;text-decoration:none;color:var(--accent)}
 
-    p {
-      font-size: 22px;
-      margin-top: 20px;
-      color: #444;
-    }
+    /* Right column */
+    .side .contact-item{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+    .muted{color:var(--muted)}
 
-    .button {
-      background-color: #222;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-      margin-top: 30px;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
+    footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
 
-    .button:hover {
-      transform: scale(1.1) rotate(-1deg);
-      background-color: #000;
-    }
-
-    .footer {
-      margin-top: 80px;
-      color: #888;
-      font-size: 14px;
-    }
-
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 30px auto;
-      border: 4px solid #222;
-    }
+    /* Responsive */
+    @media (max-width:980px){main{grid-template-columns:1fr}} 
   </style>
 </head>
 <body>
-  <div class="face">(¬‿¬)</div>
-  <h1>Call me... SODA</h1>
+  <div class="container">
+    <header>
+      <div class="avatar card">
+        <!-- แทนที่ src ด้วยรูปของคุณ -->
+        <img src="https://via.placeholder.com/400x400.png?text=โปรไฟล์" alt="รูปโปรไฟล์">
+      </div>
+      <div class="title">
+        <h1>ชลัมพล เพ็งสวัสดิ์ (Chalumpol Pengsawat)</h1>
+        <p class="lead">นักศึกษาคณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ | สนใจ: AI, Web Dev, Data Science</p>
+        <nav>
+          <a href="#profile">แนะนำตัว</a>
+          <a href="#skills">ทักษะ</a>
+          <a href="#projects">ผลงาน</a>
+          <a href="#education">การศึกษา</a>
+          <a href="#activities">กิจกรรม</a>
+          <a href="#contact">ติดต่อ</a>
+        </nav>
+      </div>
+    </header>
 
-  
-  <img src="sodaaa.jpg" alt="รูป" class="profile-img">
- 
+    <main>
+      <section>
+        <!-- 1. Introduction / Profile -->
+        <article id="profile" class="card">
+          <h2>1. แนะนำตัว (Introduction / Profile)</h2>
+          <p>สรุปสั้น ๆ ให้คนรู้ว่าเป็นใคร สนใจด้านไหน และสถานะปัจจุบัน</p>
+          <ul>
+            <li><strong>ชื่อ–นามสกุล:</strong> ชลัมพล เพ็งสวัสดิ์ (Chalumpol Pengsawat)</li>
+            <li><strong>คณะ / สาขา:</strong> คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์</li>
+            <li><strong>สถานะ:</strong> นักศึกษาปี 3</li>
+            <li><strong>ความสนใจ:</strong> AI, Web Development, Data Science</li>
+          </ul>
+        </article>
 
-  <p>นาย ชลัมพล เพ็งสวัสดิ์<br>ชื่อเล่น โซดา 🧃</p>
+        <!-- 2. Skills -->
+        <article id="skills" class="card" style="margin-top:14px">
+          <h2>2. ทักษะ (Skills)</h2>
+          <p class="muted">แสดงทักษะเชิงเทคนิคและซอฟต์สกิล แยกหมวดชัดเจน</p>
+          <div style="margin-top:10px">
+            <strong>Programming:</strong>
+            <div class="skills" style="margin-top:8px">
+              <span class="skill">Python</span>
+              <span class="skill">Java</span>
+              <span class="skill">HTML/CSS</span>
+              <span class="skill">JavaScript</span>
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <strong>AI & Data:</strong>
+            <div class="skills" style="margin-top:8px">
+              <span class="skill">TensorFlow</span>
+              <span class="skill">scikit-learn</span>
+              <span class="skill">SQL</span>
+              <span class="skill">Power BI</span>
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <strong>Tools:</strong>
+            <div class="skills" style="margin-top:8px">
+              <span class="skill">Git</span>
+              <span class="skill">VS Code</span>
+              <span class="skill">Figma</span>
+              <span class="skill">Google Colab</span>
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <strong>Soft skills:</strong>
+            <div class="skills" style="margin-top:8px">
+              <span class="skill">การสื่อสาร</span>
+              <span class="skill">การทำงานเป็นทีม</span>
+              <span class="skill">การแก้ปัญหา</span>
+            </div>
+          </div>
+        </article>
 
-  <button class="button" onclick="alert('กดทำไมอะ?')">อย่ากด</button>
+        <!-- 3. Projects / Portfolio -->
+        <article id="projects" class="card" style="margin-top:14px">
+          <h2>3. ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
+          <p class="muted">ใส่ลิงก์และภาพตัวอย่างสั้น ๆ เพื่อให้ผู้ชมเห็นผลงานจริง</p>
+          <div class="projects" style="margin-top:10px">
+            <div class="project">
+              <strong>เว็บไซต์ร้านกาแฟ (Web Project)</strong>
+              <div class="meta">สร้างเว็บไซต์ร้านกาแฟ พร้อมระบบสั่งซื้อและ Dashboard วิเคราะห์ยอดขาย</div>
+              <a href="#">GitHub Repository</a>
+            </div>
 
-  <div class="footer">Soda | 2025</div>
+            <div class="project">
+              <strong>AI ทำนายโรคเบาหวาน (Machine Learning)</strong>
+              <div class="meta">โมเดลทำนายความเสี่ยงด้วย scikit-learn และ TensorFlow</div>
+              <a href="#">GitHub Repository</a>
+            </div>
+
+            <div class="project">
+              <strong>ระบบจองห้องประชุม (Web App)</strong>
+              <div class="meta">ระบบ CRUD, Authentication, ใช้ Firebase</div>
+              <a href="#">GitHub Repository</a>
+            </div>
+          </div>
+
+          <p style="margin-top:12px" class="muted">แนบ:</p>
+          <ul>
+            <li>ลิงก์ GitHub</li>
+            <li>Demo / วิดีโอสั้น</li>
+            <li>ภาพ Screenshot 1–2 รูป</li>
+          </ul>
+        </article>
+
+        <!-- 4. Education -->
+        <article id="education" class="card" style="margin-top:14px">
+          <h2>4. การศึกษา (Education)</h2>
+          <p>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์<br>มหาวิทยาลัยราชภัฏอุดรธานี</p>
+        </article>
+
+        <!-- 5. Activities / Achievements -->
+        <article id="activities" class="card" style="margin-top:14px">
+          <h2>5. กิจกรรมและผลงานอื่น ๆ (Activities / Achievements)</h2>
+          <ul>
+            <li>ผู้เข้าร่วมอบรม "AI for Beginners by Microsoft"</li>
+            <li>เข้าร่วมแข่งขัน UDRU Hackathon 2025</li>
+            <li>ได้รับรางวัลชนะเลิศโครงงานด้าน IoT</li>
+          </ul>
+        </article>
+
+      </section>
+
+      <!-- Right column -->
+      <aside class="side">
+        <div class="card">
+          <h2>6. ติดต่อ (Contact)</h2>
+          <div class="contact-item"><strong>Email:</strong><span class="muted">your.email@university.edu</span></div>
+          <div class="contact-item"><strong>GitHub:</strong><a href="#">github.com/yourusername</a></div>
+          <div class="contact-item"><strong>LinkedIn:</strong><a href="#">linkedin.com/in/yourprofile</a></div>
+          <div class="contact-item"><strong>ที่อยู่จังหวัด:</strong><span class="muted">อุดรธานี</span></div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h2>7. องค์ประกอบเสริม</h2>
+          <p class="muted">เป้าหมายในอนาคต / ความสนใจในสายอาชีพ</p>
+          <ul>
+            <li>สนใจทำงานด้าน Data Scientist หรือ AI Engineer</li>
+            <li>มองหาโอกาสฝึกงาน / โปรเจกต์ร่วมกับทีม</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      สร้างโดยหน้า GitHub.io — แก้ไขข้อความ รูป และลิงก์ตามต้องการ
+    </footer>
+  </div>
+
+  <script>
+    // คำแนะนำ: แก้ข้อความด้านบน, เปลี่ยนรูปโปรไฟล์ และแทนที่ลิงก์ GitHub/LinkedIn
+  </script>
 </body>
 </html>
