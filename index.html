@@ -32,6 +32,17 @@
             animation: fadeInDown 1s ease-out;
         }
 
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
         header h1 {
             font-size: 3em;
             margin-bottom: 10px;
@@ -205,6 +216,17 @@
             }
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -234,55 +256,56 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎓 ชลัมพล เพ็งสวัสดิ์</h1>
+            <img src="sodaaa.jpg" alt="Chalumpol Pengsawat" class="profile-image">
+            <h1>ชลัมพล เพ็งสวัสดิ์</h1>
             <p>Chalumpol Pengsawat</p>
             <p>นักศึกษาวิทยาการคอมพิวเตอร์ ชั้นปีที่ 4</p>
             <p>คณะวิทยาศาสตร์ มหาวิทยาลัยราชภัฏอุดรธานี</p>
             
             <div class="interests">
-                <div class="interest-tag">🤖 AI</div>
-                <div class="interest-tag">🌐 Web Development</div>
-                <div class="interest-tag">📊 Data Science</div>
-                <div class="interest-tag">🎮 Game Development</div>
+                <div class="interest-tag">AI</div>
+                <div class="interest-tag">Web Development</div>
+                <div class="interest-tag">Data Science</div>
+                <div class="interest-tag">Game Development</div>
             </div>
         </header>
 
         <div class="section">
-            <h2>💻 ทักษะ (Skills)</h2>
+            <h2>ทักษะ (Skills)</h2>
             
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Programming Languages</h3>
-                    <div class="skill-item">🐍 Python</div>
-                    <div class="skill-item">☕ Java</div>
-                    <div class="skill-item">💎 C#</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">Java</div>
+                    <div class="skill-item">C#</div>
                 </div>
 
                 <div class="skill-category">
                     <h3>Tools & Frameworks</h3>
-                    <div class="skill-item">🎮 Unity</div>
-                    <div class="skill-item">🎨 Blender</div>
-                    <div class="skill-item">📦 Git</div>
-                    <div class="skill-item">🎨 Figma</div>
-                    <div class="skill-item">💻 VS Code</div>
-                    <div class="skill-item">🅰️ Angular</div>
+                    <div class="skill-item">Unity</div>
+                    <div class="skill-item">Blender</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">Figma</div>
+                    <div class="skill-item">VS Code</div>
+                    <div class="skill-item">Angular</div>
                 </div>
 
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
-                    <div class="skill-item">💬 การสื่อสาร</div>
-                    <div class="skill-item">🤝 การทำงานเป็นทีม</div>
-                    <div class="skill-item">🧠 การคิดวิเคราะห์</div>
-                    <div class="skill-item">🎯 การวางแผนเชิงกลยุทธ์</div>
+                    <div class="skill-item">การสื่อสาร</div>
+                    <div class="skill-item">การทำงานเป็นทีม</div>
+                    <div class="skill-item">การคิดวิเคราะห์</div>
+                    <div class="skill-item">การวางแผนเชิงกลยุทธ์</div>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>🎮 ผลงานที่ผ่านมา (Projects)</h2>
+            <h2>ผลงานที่ผ่านมา (Projects)</h2>
             
             <div class="project-card">
-                <h3>🦁 เกมสวนสัตว์เพื่อการศึกษา (Educational Zoo Game)</h3>
+                <h3>เกมสวนสัตว์เพื่อการศึกษา (Educational Zoo Game)</h3>
                 
                 <div class="project-details">
                     <p><strong>ประเภท:</strong> เกม 2D</p>
@@ -293,10 +316,10 @@
                 <div class="project-details">
                     <p><strong>คุณสมบัติเด่น:</strong></p>
                     <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>✨ ระบบเก็บคะแนน</li>
-                        <li>❓ ระบบตอบคำถามความรู้</li>
-                        <li>🎨 UI แบบอินเทอร์แอกทีฟ</li>
-                        <li>🎯 ระบบควบคุมตัวละครด้วย Input System</li>
+                        <li>ระบบเก็บคะแนน</li>
+                        <li>ระบบตอบคำถามความรู้</li>
+                        <li>UI แบบอินเทอร์แอกทีฟ</li>
+                        <li>ระบบควบคุมตัวละครด้วย Input System</li>
                     </ul>
                 </div>
                 
@@ -307,7 +330,7 @@
         </div>
 
         <div class="section">
-            <h2>🏆 กิจกรรมและผลงาน (Achievements)</h2>
+            <h2>กิจกรรมและผลงาน (Achievements)</h2>
             
             <div class="achievement-card">
                 <div class="trophy-icon">🏆</div>
@@ -320,7 +343,7 @@
         </div>
 
         <div class="section">
-            <h2>📧 ติดต่อ (Contact)</h2>
+            <h2>ติดต่อ (Contact)</h2>
             
             <div class="contact-grid">
                 <a href="mailto:chalumpol.p@example.com" class="contact-item">
