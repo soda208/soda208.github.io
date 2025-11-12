@@ -1,204 +1,363 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>หน้าแรก GitHub.io ของนักศึกษา</title>
-  <style>
-    :root{--accent:#d93b3b;--muted:#666;--bg:#f8f8f8;--card:#fff;--radius:12px}
-    *{box-sizing:border-box}
-    body{font-family: "Sarabun", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#111}
-    .container{max-width:1100px;margin:28px auto;padding:28px}
-    header{display:flex;gap:24px;align-items:center}
-    .avatar{width:120px;height:120px;border-radius:16px;flex:0 0 120px;overflow:hidden;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
-    .avatar img{width:100%;height:100%;object-fit:cover}
-    .title{flex:1}
-    h1{margin:0;font-size:28px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chalumpol Pengsawat - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    nav{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-    nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--accent);border:1px solid rgba(217,59,59,0.12);background:#fff}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
 
-    main{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:22px}
-    .card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(16,24,40,0.04)}
-    h2{color:var(--accent);margin-top:0}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    /* Skills list */
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{background:#f2f2f2;padding:6px 10px;border-radius:999px;font-size:14px;color:#222}
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            animation: fadeInDown 1s ease-out;
+        }
 
-    /* Projects */
-    .projects{display:grid;gap:12px}
-    .project{border-left:4px solid var(--accent);padding:12px;background:#fff;border-radius:10px}
-    .project .meta{font-size:13px;color:var(--muted);margin-top:6px}
-    .project a{display:inline-block;margin-top:8px;text-decoration:none;color:var(--accent)}
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-    /* Right column */
-    .side .contact-item{display:flex;gap:10px;align-items:center;margin-bottom:10px}
-    .muted{color:var(--muted)}
+        header p {
+            font-size: 1.3em;
+            margin-bottom: 5px;
+            opacity: 0.95;
+        }
 
-    footer{text-align:center;color:var(--muted);margin-top:18px;font-size:13px}
+        .interests {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
 
-    /* Responsive */
-    @media (max-width:980px){main{grid-template-columns:1fr}} 
-  </style>
+        .interest-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .interest-tag:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .skill-category h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .project-details {
+            margin: 15px 0;
+        }
+
+        .project-details strong {
+            color: #764ba2;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: scale(1.03);
+        }
+
+        .trophy-icon {
+            font-size: 3em;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-item i {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 50px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="avatar card">
-        <!-- แทนที่ src ด้วยรูปของคุณ -->
-        <img src="sodaaa.jpg">
-      </div>
-      <div class="title">
-        <h1>ชลัมพล เพ็งสวัสดิ์ (Chalumpol Pengsawat)</h1>
-        <p class="lead">นักศึกษาคณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ | สนใจ: AI, Web Dev, Data Science</p>
-        <nav>
-          <a href="#profile">แนะนำตัว</a>
-          <a href="#skills">ทักษะ</a>
-          <a href="#projects">ผลงาน</a>
-          <a href="#education">การศึกษา</a>
-          <a href="#activities">กิจกรรม</a>
-          <a href="#contact">ติดต่อ</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section>
-        <!-- 1. Introduction / Profile -->
-        <article id="profile" class="card">
-          <h2>1. แนะนำตัว (Introduction / Profile)</h2>
-          <p>สรุปสั้น ๆ ให้คนรู้ว่าเป็นใคร สนใจด้านไหน และสถานะปัจจุบัน</p>
-          <ul>
-            <li><strong>ชื่อ–นามสกุล:</strong> ชลัมพล เพ็งสวัสดิ์ (Chalumpol Pengsawat)</li>
-            <li><strong>คณะ / สาขา:</strong> คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์</li>
-            <li><strong>สถานะ:</strong> นักศึกษาปี 4</li>
-            <li><strong>ความสนใจ:</strong> AI, Web Development, Data Science</li>
-          </ul>
-        </article>
-
-        <!-- 2. Skills -->
-        <article id="skills" class="card" style="margin-top:14px">
-          <h2>2. ทักษะ (Skills)</h2>
-          <p class="muted">แสดงทักษะเชิงเทคนิคและซอฟต์สกิล แยกหมวดชัดเจน</p>
-          <div style="margin-top:10px">
-            <strong>Programming:</strong>
-            <div class="skills" style="margin-top:8px">
-              <span class="skill">Python</span>
-              <span class="skill">Java</span>
-              <span class="skill">HTML/CSS</span>
-              <span class="skill">JavaScript</span>
+    <div class="container">
+        <header>
+            <h1>🎓 ชลัมพล เพ็งสวัสดิ์</h1>
+            <p>Chalumpol Pengsawat</p>
+            <p>นักศึกษาวิทยาการคอมพิวเตอร์ ชั้นปีที่ 4</p>
+            <p>คณะวิทยาศาสตร์ มหาวิทยาลัยราชภัฏอุดรธานี</p>
+            
+            <div class="interests">
+                <div class="interest-tag">🤖 AI</div>
+                <div class="interest-tag">🌐 Web Development</div>
+                <div class="interest-tag">📊 Data Science</div>
+                <div class="interest-tag">🎮 Game Development</div>
             </div>
-          </div>
-          <div style="margin-top:10px">
-            <strong>AI & Data:</strong>
-            <div class="skills" style="margin-top:8px">
-              <span class="skill">TensorFlow</span>
-              <span class="skill">scikit-learn</span>
-              <span class="skill">SQL</span>
-              <span class="skill">Power BI</span>
+        </header>
+
+        <div class="section">
+            <h2>💻 ทักษะ (Skills)</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-item">🐍 Python</div>
+                    <div class="skill-item">☕ Java</div>
+                    <div class="skill-item">💎 C#</div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Frameworks</h3>
+                    <div class="skill-item">🎮 Unity</div>
+                    <div class="skill-item">🎨 Blender</div>
+                    <div class="skill-item">📦 Git</div>
+                    <div class="skill-item">🎨 Figma</div>
+                    <div class="skill-item">💻 VS Code</div>
+                    <div class="skill-item">🅰️ Angular</div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-item">💬 การสื่อสาร</div>
+                    <div class="skill-item">🤝 การทำงานเป็นทีม</div>
+                    <div class="skill-item">🧠 การคิดวิเคราะห์</div>
+                    <div class="skill-item">🎯 การวางแผนเชิงกลยุทธ์</div>
+                </div>
             </div>
-          </div>
-          <div style="margin-top:10px">
-            <strong>Tools:</strong>
-            <div class="skills" style="margin-top:8px">
-              <span class="skill">Git</span>
-              <span class="skill">VS Code</span>
-              <span class="skill">Figma</span>
-              <span class="skill">Google Colab</span>
-            </div>
-          </div>
-          <div style="margin-top:10px">
-            <strong>Soft skills:</strong>
-            <div class="skills" style="margin-top:8px">
-              <span class="skill">การสื่อสาร</span>
-              <span class="skill">การทำงานเป็นทีม</span>
-              <span class="skill">การแก้ปัญหา</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 3. Projects / Portfolio -->
-        <article id="projects" class="card" style="margin-top:14px">
-          <h2>3. ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
-          <p class="muted">ใส่ลิงก์และภาพตัวอย่างสั้น ๆ เพื่อให้ผู้ชมเห็นผลงานจริง</p>
-          <div class="projects" style="margin-top:10px">
-            <div class="project">
-              <strong>เว็บไซต์ร้านกาแฟ (Web Project)</strong>
-              <div class="meta">สร้างเว็บไซต์ร้านกาแฟ พร้อมระบบสั่งซื้อและ Dashboard วิเคราะห์ยอดขาย</div>
-              <a href="#">GitHub Repository</a>
-            </div>
-
-            <div class="project">
-              <strong>AI ทำนายโรคเบาหวาน (Machine Learning)</strong>
-              <div class="meta">โมเดลทำนายความเสี่ยงด้วย scikit-learn และ TensorFlow</div>
-              <a href="#">GitHub Repository</a>
-            </div>
-
-            <div class="project">
-              <strong>ระบบจองห้องประชุม (Web App)</strong>
-              <div class="meta">ระบบ CRUD, Authentication, ใช้ Firebase</div>
-              <a href="#">GitHub Repository</a>
-            </div>
-          </div>
-
-          <p style="margin-top:12px" class="muted">แนบ:</p>
-          <ul>
-            <li>ลิงก์ GitHub</li>
-            <li>Demo / วิดีโอสั้น</li>
-            <li>ภาพ Screenshot 1–2 รูป</li>
-          </ul>
-        </article>
-
-        <!-- 4. Education -->
-        <article id="education" class="card" style="margin-top:14px">
-          <h2>4. การศึกษา (Education)</h2>
-          <p>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์<br>มหาวิทยาลัยราชภัฏอุดรธานี</p>
-        </article>
-
-        <!-- 5. Activities / Achievements -->
-        <article id="activities" class="card" style="margin-top:14px">
-          <h2>5. กิจกรรมและผลงานอื่น ๆ (Activities / Achievements)</h2>
-          <ul>
-            <li>ผู้เข้าร่วมอบรม "AI for Beginners by Microsoft"</li>
-            <li>เข้าร่วมแข่งขัน UDRU Hackathon 2025</li>
-            <li>ได้รับรางวัลชนะเลิศโครงงานด้าน IoT</li>
-          </ul>
-        </article>
-
-      </section>
-
-      <!-- Right column -->
-      <aside class="side">
-        <div class="card">
-          <h2>6. ติดต่อ (Contact)</h2>
-          <div class="contact-item"><strong>Email:</strong><span class="muted">your.email@university.edu</span></div>
-          <div class="contact-item"><strong>GitHub:</strong><a href="#">github.com/yourusername</a></div>
-          <div class="contact-item"><strong>LinkedIn:</strong><a href="#">linkedin.com/in/yourprofile</a></div>
-          <div class="contact-item"><strong>ที่อยู่จังหวัด:</strong><span class="muted">อุดรธานี</span></div>
         </div>
 
-        <div class="card" style="margin-top:14px">
-          <h2>7. องค์ประกอบเสริม</h2>
-          <p class="muted">เป้าหมายในอนาคต / ความสนใจในสายอาชีพ</p>
-          <ul>
-            <li>สนใจทำงานด้าน Data Scientist หรือ AI Engineer</li>
-            <li>มองหาโอกาสฝึกงาน / โปรเจกต์ร่วมกับทีม</li>
-          </ul>
+        <div class="section">
+            <h2>🎮 ผลงานที่ผ่านมา (Projects)</h2>
+            
+            <div class="project-card">
+                <h3>🦁 เกมสวนสัตว์เพื่อการศึกษา (Educational Zoo Game)</h3>
+                
+                <div class="project-details">
+                    <p><strong>ประเภท:</strong> เกม 2D</p>
+                    <p><strong>เครื่องมือ:</strong> Unity, C#</p>
+                    <p><strong>รายละเอียด:</strong> เกมแนวการเรียนรู้ผ่านการเล่น (Gamification) ที่ผู้เล่นสามารถสำรวจสวนสัตว์และเรียนรู้ข้อมูลเกี่ยวกับสัตว์แต่ละชนิด</p>
+                </div>
+                
+                <div class="project-details">
+                    <p><strong>คุณสมบัติเด่น:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>✨ ระบบเก็บคะแนน</li>
+                        <li>❓ ระบบตอบคำถามความรู้</li>
+                        <li>🎨 UI แบบอินเทอร์แอกทีฟ</li>
+                        <li>🎯 ระบบควบคุมตัวละครด้วย Input System</li>
+                    </ul>
+                </div>
+                
+                <div class="project-details">
+                    <p><strong>จุดประสงค์:</strong> เพื่อส่งเสริมการเรียนรู้ผ่านสื่อเกมดิจิทัล</p>
+                </div>
+            </div>
         </div>
-      </aside>
-    </main>
 
-    <footer>
-      สร้างโดยหน้า GitHub.io — แก้ไขข้อความ รูป และลิงก์ตามต้องการ
-    </footer>
-  </div>
+        <div class="section">
+            <h2>🏆 กิจกรรมและผลงาน (Achievements)</h2>
+            
+            <div class="achievement-card">
+                <div class="trophy-icon">🏆</div>
+                <div>
+                    <h3 style="color: #e67e22; margin-bottom: 10px;">เหรียญทองการแข่งขันหมากรุก</h3>
+                    <p><strong>ระดับ:</strong> มหาวิทยาลัย</p>
+                    <p><strong>ความสามารถที่ได้:</strong> การคิดวิเคราะห์เชิงกลยุทธ์, การวางแผน, และการแก้ปัญหา</p>
+                </div>
+            </div>
+        </div>
 
-  <script>
-    // คำแนะนำ: แก้ข้อความด้านบน, เปลี่ยนรูปโปรไฟล์ และแทนที่ลิงก์ GitHub/LinkedIn
-  </script>
+        <div class="section">
+            <h2>📧 ติดต่อ (Contact)</h2>
+            
+            <div class="contact-grid">
+                <a href="mailto:chalumpol.p@example.com" class="contact-item">
+                    <span style="font-size: 2em;">📧</span>
+                    <p><strong>Email</strong></p>
+                    <p style="font-size: 0.9em;">chalumpol.p@example.com</p>
+                </a>
+                
+                <a href="https://github.com/chalumpolp" target="_blank" class="contact-item">
+                    <span style="font-size: 2em;">💻</span>
+                    <p><strong>GitHub</strong></p>
+                    <p style="font-size: 0.9em;">github.com/chalumpolp</p>
+                </a>
+                
+                <a href="https://linkedin.com/in/chalumpol-pengsawat" target="_blank" class="contact-item">
+                    <span style="font-size: 2em;">💼</span>
+                    <p><strong>LinkedIn</strong></p>
+                    <p style="font-size: 0.9em;">chalumpol-pengsawat</p>
+                </a>
+                
+                <a href="https://facebook.com/chalumpol.pengsawat" target="_blank" class="contact-item">
+                    <span style="font-size: 2em;">📱</span>
+                    <p><strong>Facebook</strong></p>
+                    <p style="font-size: 0.9em;">chalumpol.pengsawat</p>
+                </a>
+                
+                <a href="https://chalumpolp.github.io" target="_blank" class="contact-item">
+                    <span style="font-size: 2em;">🌐</span>
+                    <p><strong>Portfolio</strong></p>
+                    <p style="font-size: 0.9em;">chalumpolp.github.io</p>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 Chalumpol Pengsawat | Built with ❤️</p>
+        </footer>
+    </div>
 </body>
 </html>
-
-
